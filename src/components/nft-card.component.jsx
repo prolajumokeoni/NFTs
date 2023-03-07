@@ -30,8 +30,8 @@ const NFTCard = ({ NFTs }) => {
             </div>
           );
         })}
-     {toggle &&  <div className="popup-container">
-          <div className="popup-body">
+     {toggle &&  <div className="popup-container" onClick={popupContent}>
+          <div className="popup-body" onClick={(e) => e.stopPropagation()}>
         <div className="popup-header">
           <button onClick={popupContent}>X</button>
           </div>
