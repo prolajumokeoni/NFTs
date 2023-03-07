@@ -1,6 +1,13 @@
-import "./nft.styles.css";
+import "./nft-card.styles.css";
+import { useState } from "react";
 
 const NFTCard = ({ NFTs }) => {
+  const [popup, setPopup] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const popupContent = (nft) => {
+    setPopup([nft]);
+    setToggle(!toggle);
+  };
   return (
     <div className="nft-container">
       {NFTs.length &&
@@ -18,10 +25,26 @@ const NFTCard = ({ NFTs }) => {
               <div>
                 <p>Id: {nft.id.tokenId.substr(nft.id.tokenId.length - 4)}</p>
                 <p>{nft.description?.substr(0, 150)}</p>
+                <button onClick={() => popupContent(nft)}>open</button>
               </div>
             </div>
           );
         })}
+     {toggle &&  <div className="popup-container">
+          <div className="popup-body">
+        <div className="popup-header">
+          <button onClick={popupContent}>X</button>
+          </div>
+            {popup.map((pop) => {
+              return (
+                <div>
+                  <h1>{pop.title}</h1>
+                  <p>{pop.description}</p>
+                </div>
+              );
+            })}
+        </div>
+      </div>}
     </div>
   );
 };
