@@ -1,5 +1,5 @@
-import "./App.css";
 import React, { useEffect, useState } from "react";
+import NFTCard from "./components/nft-card.component";
 
 const App = () => {
   const [NFTs, setNFTs] = useState([]);
@@ -16,21 +16,15 @@ const App = () => {
   const fetchInfo = async () => {
     return await fetch(fetchURL, requestOptions)
       .then((response) => response.json())
-      .then((d) => setNFTs(d.ownedNfts));
+      .then((nfts) => setNFTs(nfts.ownedNfts));
   };
   useEffect(() => {
     fetchInfo();
   });
+  console.log(NFTs)
   return (
     <div>
-      {NFTs.length &&
-        NFTs.map((nft) => {
-          return (
-            <div>
-              <h1>{nft.title}</h1>
-            </div>
-          );
-        })}
+      <NFTCard NFTs={NFTs} />
     </div>
   );
 };
