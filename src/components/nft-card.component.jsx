@@ -82,6 +82,7 @@ const NFTCard = ({ NFTs }) => {
                         {pop.id.tokenId.substr(pop.id.tokenId.length - 6)}
                       </h2>
                     )}
+
                     {pop.description !== "" ? (
                       <p>{pop.description}</p>
                     ) : (
@@ -92,6 +93,7 @@ const NFTCard = ({ NFTs }) => {
                         quia vero suscipit dolor, ex enim. Est, ipsa.
                       </p>
                     )}
+                    
                     <div className="pop-links">
                       <a
                         target="_blank"
