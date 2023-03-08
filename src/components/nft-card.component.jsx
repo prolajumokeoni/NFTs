@@ -18,7 +18,7 @@ const NFTCard = ({ NFTs }) => {
           return (
             <div className="nft-card" key={idx}>
               <div className="img-wrapper">
-                {(nft.media[0].gateway !== "" ) ? (
+                {nft.media[0].gateway !== "" ? (
                   <img
                     src={nft.media[0].gateway}
                     className="nft-img"
@@ -32,7 +32,14 @@ const NFTCard = ({ NFTs }) => {
                 )}
               </div>
               <div className="details-wrapper">
-                {(nft.title !== "") ? (<h4 className="card-title">{nft.title}</h4>) : (<h4 className="card-title">No name yet for {nft.id.tokenId.substr(nft.id.tokenId.length - 6)}</h4>)}
+                {nft.title !== "" ? (
+                  <h4 className="card-title">{nft.title}</h4>
+                ) : (
+                  <h4 className="card-title">
+                    No name yet for{" "}
+                    {nft.id.tokenId.substr(nft.id.tokenId.length - 6)}
+                  </h4>
+                )}
                 <div className="details-card">
                   <p>Id: {nft.id.tokenId.substr(nft.id.tokenId.length - 4)}</p>
                   <button
@@ -50,20 +57,46 @@ const NFTCard = ({ NFTs }) => {
         <div className="popup-container" onClick={popupContent}>
           <div className="popup-body" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <button onClick={popupContent}>X</button>
+              <button className="close" onClick={popupContent}>X</button>
             </div>
-            {popup.map((pop) => {
+            {popup.map((pop, idx) => {
               return (
-                <div>
-                  <img
-                    src={pop.media[0].gateway}
-                    className="pop-img"
-                    alt={`nft ${pop.title}`}
-                  />
-                  <div>
-                    <h1>{pop.title}</h1>
-                    <p>{pop.description}</p>
-                    <div>
+                <div className="popup-wrapper">
+                  <div className="pop-left">
+                    {pop.media[0].gateway !== "" ? (
+                      <img
+                        src={pop.media[0].gateway}
+                        className="pop-img"
+                        alt={`pop ${pop.title}`}
+                      />
+                    ) : (
+                      <img
+                        className="pop-img"
+                        src={`https://robohash.org/${idx}?set=set2`}
+                        alt={`pop ${pop.title}`}
+                      />
+                    )}
+                  </div>
+                  <div className="pop-div">
+                    {pop.title !== "" ? (
+                      <h2>{pop.title}</h2>
+                    ) : (
+                      <h2>
+                        No name yet for{" "}
+                        {pop.id.tokenId.substr(pop.id.tokenId.length - 6)}
+                      </h2>
+                    )}
+                    {pop.description !== "" ? (
+                      <p>{pop.description}</p>
+                    ) : (
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aut tenetur in, aspernatur aperiam facere
+                        exercitationem? Atque id officiis beatae in vel soluta
+                        quia vero suscipit dolor, ex enim. Est, ipsa.
+                      </p>
+                    )}
+                    <div className="pop-links">
                       <a
                         target="_blank"
                         rel="noreferrer"
