@@ -5,7 +5,7 @@ import './App.styles.css'
 const App = () => {
   const [NFTs, setNFTs] = useState([]);
   const [walletAddress, setWalletAdress] = useState(
-    "0xA858DDc0445d8131daC4d1DE01f834ffcbA52Ef1"
+    "0x82888A271FAe31794493B9f95d5f0F7175b810e3"
   );
 
   let requestOptions = {
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <div className="main">
     <div className="inputwallet">
-    <h1>Add wallet Adrress link⬇️ </h1>
+    <h1>Paste Wallet Adrress link⬇️ </h1>
       <input
       className="inputwallet"
         value={walletAddress}

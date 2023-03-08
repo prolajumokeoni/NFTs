@@ -43,10 +43,13 @@ Tokens)  from the Alchemy API
  
  
   
-## 🎥 Screenshots <a name="live-video"></a>
+## 🎥 Screenshots <a name="screenshot"></a>
 <p align="right"><a href="#readme-top">back to top</a></p>
 
-![Screenshot_747](https://user-images.githubusercontent.com/69638013/223805380-0658d3b0-00b6-4da9-ad04-82d331833c6a.png)
+![Screenshot_748](https://user-images.githubusercontent.com/69638013/223830625-a7f72888-3965-4e63-809a-2b79f0991cfc.png)
+
+
+![Screenshot_750](https://user-images.githubusercontent.com/69638013/223831952-99a1262c-2db1-4a80-acd3-896653cbf5e4.png)
 
 
 <!-- GETTING STARTED -->
