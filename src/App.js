@@ -30,10 +30,11 @@ const App = () => {
   return (
     <div className="main">
     <div className="inputwallet">
+    <h1>Add wallet Adrress link⬇️ </h1>
       <input
       className="inputwallet"
         value={walletAddress}
-        type={"text"}
+        type={"search"}
         placeholder="Add your wallet address"
         onChange={(e) => {
           setWalletAdress(e.target.value);

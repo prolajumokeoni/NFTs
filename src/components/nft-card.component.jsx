@@ -13,7 +13,7 @@ const NFTCard = ({ NFTs }) => {
 
   return (
     <div className="nft-container">
-      {NFTs.length &&
+      { 
         NFTs.map((nft, idx) => {
           return (
             <div className="nft-card" key={idx}>
@@ -32,14 +32,9 @@ const NFTCard = ({ NFTs }) => {
                 )}
               </div>
               <div className="details-wrapper">
-                {nft.title !== "" ? (
-                  <h4 className="card-title">{nft.title}</h4>
-                ) : (
-                  <h4 className="card-title">
-                    No name yet for{" "}
-                    {nft.id.tokenId.substr(nft.id.tokenId.length - 6)}
-                  </h4>
-                )}
+                {nft.title !== "" ? ( 
+                  <h4 className="card-title">{(nft.title.length < 10 ) ? (nft.title) : (nft.title.substr(0, nft.title.length - 5))}</h4>
+                ) : ( <h4 className="card-title">No name yet for</h4> )}
                 <div className="details-card">
                   <p>Id: {nft.id.tokenId.substr(nft.id.tokenId.length - 4)}</p>
                   <button
@@ -61,7 +56,7 @@ const NFTCard = ({ NFTs }) => {
             </div>
             {popup.map((pop, idx) => {
               return (
-                <div className="popup-wrapper">
+                <div className="popup-wrapper" key={idx}>
                   <div className="pop-left">
                     {pop.media[0].gateway !== "" ? (
                       <img
@@ -100,7 +95,7 @@ const NFTCard = ({ NFTs }) => {
                       <a
                         target="_blank"
                         rel="noreferrer"
-                        href={`https://etherscan.io/token/${pop.contract.address}`}
+                        href={`https://opensea.io/assets/${pop.contract.address}/${pop.id}`}
                         className="py-2 px-4 bg-blue-500 w-1/2 text-center rounded-m text-white cursor-pointer"
                       >
                         View on openSea
