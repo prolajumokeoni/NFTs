@@ -1,6 +1,7 @@
 import "./nft-card.styles.css";
 import { useState } from "react";
 
+
 const NFTCard = ({ NFTs }) => {
   const [popup, setPopup] = useState([]);
 
@@ -95,7 +96,7 @@ const NFTCard = ({ NFTs }) => {
                       <a
                         target="_blank"
                         rel="noreferrer"
-                        href={`https://opensea.io/assets/${pop.contract.address}/${pop.id}`}
+                        href={`https://opensea.io/assets/${pop.contract.address}/${pop.title.substr(1,pop.title.length-1)}`}
                         className="py-2 px-4 bg-blue-500 w-1/2 text-center rounded-m text-white cursor-pointer"
                       >
                         View on openSea
