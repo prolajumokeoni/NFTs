@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NFTCard from "./components/nft-card.component";
 import "./App.styles.css";
 
@@ -25,13 +25,12 @@ const App = () => {
       .then((nfts) => setNFTs(nfts.ownedNfts));
   };
 
-  useEffect(() => {
-    fetchInfo();
-  });
+ 
 
   const handleClick = () => {
     setActive(!active);
     fetchInfo();
+    setWalletAddress("")
   };
 
   return (
