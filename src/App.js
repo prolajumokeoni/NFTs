@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import NFTCard from "./components/nft-card.component";
-import './App.styles.css'
+import "./App.styles.css";
 
 const App = () => {
   const [NFTs, setNFTs] = useState([]);
-  const [walletAddress, setWalletAdress] = useState(
+  const [walletAddress, setWalletAddress] = useState(
     "0x82888A271FAe31794493B9f95d5f0F7175b810e3"
   );
 
+  const [active, setActive] = useState(false);
+  
   let requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -27,19 +29,30 @@ const App = () => {
     fetchInfo();
   });
 
+  const handleClick = () => {
+    setActive(!active);
+    fetchInfo();
+  };
+
   return (
     <div className="main">
-    <div className="inputwallet">
-    <h1>Paste Wallet Adrress link⬇️ </h1>
-      <input
-      className="inputwallet"
-        value={walletAddress}
-        type={"search"}
-        placeholder="Add your wallet address"
-        onChange={(e) => {
-          setWalletAdress(e.target.value);
-        }}
-      />
+      <div className="inputwallet">
+        <h2>Add Address from OpenSea or click default ⬇️ </h2>
+        <input
+          value={walletAddress}
+          type={"search"}
+          placeholder="Add your wallet address"
+          onChange={(e) => {
+            setWalletAddress(e.target.value);
+          }}
+        />
+        <button
+          className={active ? "green-btn" : "input-btn"}
+          onClick={handleClick}
+        >
+          {" "}
+          Get NFTs
+        </button>
       </div>
       <NFTCard NFTs={NFTs} />
     </div>

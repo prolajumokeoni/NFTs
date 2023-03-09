@@ -131,8 +131,7 @@ If you like this project kindly give it a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
  
-
--Thanks to [Alchemy](https://docs.alchemy.com/reference/) for the great docs
+ Thanks to [Alchemy](https://docs.alchemy.com/reference/) for the great documentaion
 
 
 <p align="right"><a href="#readme-top">back to top</a></p>
