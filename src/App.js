@@ -9,7 +9,7 @@ const App = () => {
   );
 
   const [active, setActive] = useState(false);
-  
+
   let requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -47,8 +47,9 @@ const App = () => {
           }}
         />
         <button
-          className={active ? "green-btn" : "input-btn"}
+          className="input-btn"
           onClick={handleClick}
+          style={{backgroundColor: active ? "green" : "none", color: active ? "white" : "none"}}
         >
           {" "}
           Get NFTs
