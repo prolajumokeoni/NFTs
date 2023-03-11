@@ -21,11 +21,13 @@ const App = () => {
 
   const fetchInfo = async () => {
     return await fetch(fetchURL, requestOptions)
-      .then((response) => response.json())
-      .then((nfts) => setNFTs(nfts.ownedNfts));
+      .then((res) => res.json())
+      .then((response) => {
+        const data1 = response.ownedNfts.filter((nft) => nft.title);
+        setNFTs(data1);
+      });
   };
-
- 
+  console.log(NFTs)
 
   const handleClick = () => {
     setActive(!active);
@@ -48,7 +50,10 @@ const App = () => {
         <button
           className="input-btn"
           onClick={handleClick}
-          style={{backgroundColor: active ? "green" : "none", color: active ? "white" : "none"}}
+          style={{
+            backgroundColor: active ? "green" : "none",
+            color: active ? "white" : "none",
+          }}
         >
           {" "}
           Get NFTs
